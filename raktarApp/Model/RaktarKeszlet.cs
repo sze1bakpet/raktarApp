@@ -11,9 +11,9 @@ namespace raktarApp.Model
         private string termeknev;
         private int mennyiseg;
         private string mennyisegmertek;
-        private int egysegar;
+        private double egysegar;
 
-        public RaktarKeszlet(string termeknev, int mennyiseg, string mennyisegmertek,int egysegar)
+        public RaktarKeszlet(string termeknev, int mennyiseg, string mennyisegmertek,double egysegar)
         {
             this.termeknev = termeknev;
             this.mennyiseg = mennyiseg;
@@ -45,12 +45,33 @@ namespace raktarApp.Model
             { Mennyisegmertek = value; }
         }
 
-        public int Egysegar
+        public double Egysegar
         {
             get
             { return egysegar; }
             set
             { egysegar = value; }
         }
+
+        public void BeMennyiseg(int be)
+        {
+            this.mennyiseg += be;
+        }
+
+        public void KiMennyiseg(int ki)
+        {
+            this.mennyiseg -= ki;
+        }
+
+        public void ArEmeles20()
+        {
+            this.egysegar *= 1.2;
+        }
+
+        public override string ToString()
+        {
+            return "\nA termék neve: " + termeknev + "\nRaktáron lévő mennyiség: " + mennyiseg + " " + mennyisegmertek + "\nEgységára: " + egysegar + " Ft/" + mennyisegmertek;
+        }
+
     }
 }
